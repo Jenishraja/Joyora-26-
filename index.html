@@ -1,200 +1,284 @@
-      <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Joyora'26 | College Event</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f172a;
-      color: white;
-    }
-
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #2563eb, #9333ea);
-    }
-
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .events {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #38bdf8;
-    }
-
-    .price {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #22c55e;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #020617;
-      font-size: 14px;
-      opacity: 0.7;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>JOYORA'26</h1>
-    <p>A College Event by Joy University</p>
-  </header>
-<section id="rules">
-  <h2>Rules & Regulations</h2>
-  <ul>
-    <li>Each participant must register through the Google Form.</li>
-    <li>Registration fee: ₹150 per participant.</li>
-    <li>College ID card is mandatory.</li>
-    <li>Participants must follow event timings strictly.</li>
-    <li>Decision of judges and organizers will be final.</li>
-    <li>Any misbehavior will lead to disqualification.</li>
-  </ul>
-</section>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Corporate Walk | JOYORA'26</title>
+<title>JOYORA'26 | Joy University</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0d0d0d;
-  color: white;
-  padding: 20px;
+:root{
+  --main:#7b2cff;
+  --dark:#0b061a;
+  --card:#16002f;
+  --text:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,sans-serif;}
+body{
+  background:radial-gradient(circle at top,#1a0038,#050010);
+  color:var(--text);
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
+/* HEADER */
+header{
+  text-align:center;
+  padding:70px 20px;
+}
+header img{
+  width:120px;
+  margin-bottom:20px;
+}
+header h1{
+  font-size:3.2rem;
+  color:#d6b8ff;
+}
+header p{
+  opacity:.85;
+  margin-top:8px;
 }
 
-img {
-  width: 100%;
-  border-radius: 15px;
+/* TIMER */
+#timer{
+  margin:30px auto;
+  width:90%;
+  max-width:520px;
+  background:linear-gradient(45deg,#2b0060,#3d0099);
+  padding:22px;
+  border-radius:16px;
+  text-align:center;
+  font-size:1.2rem;
+  box-shadow:0 0 25px #7b2cff55;
 }
 
-h1 {
-  margin-top: 20px;
-  color: #ff9800;
+/* EVENTS */
+.events{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  padding:40px;
+}
+.event-card{
+  background:var(--card);
+  padding:30px;
+  border-radius:18px;
+  cursor:pointer;
+  transition:.4s;
+  border:1px solid #7b2cff44;
+}
+.event-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 30px #7b2cffaa;
+}
+.event-card h2{
+  color:#d6b8ff;
+  margin-bottom:10px;
 }
 
-ul {
-  line-height: 1.8;
+/* DETAILS */
+#details{
+  display:none;
+  padding:40px;
+  animation:fade .6s ease;
 }
+@keyframes fade{from{opacity:0}to{opacity:1}}
 
-.register-btn {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  background: #ff9800;
-  color: black;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 10px;
-  font-weight: bold;
+.section{
+  background:var(--card);
+  margin-bottom:30px;
+  padding:28px;
+  border-radius:18px;
+  border:1px solid #7b2cff33;
 }
+.section h3{
+  color:#d6b8ff;
+  margin-bottom:12px;
+}
+.section ul{padding-left:20px}
+.section li{margin-bottom:8px}
+
+button{
+  background:linear-gradient(45deg,#7b2cff,#b084ff);
+  border:none;
+  padding:15px 40px;
+  border-radius:40px;
+  font-size:1.05rem;
+  color:white;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.75;
+}
+a{color:#d6b8ff;text-decoration:none}
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<img src="corporate-walk.jpg" alt="Corporate Walk">
+<header>
+  <img src="logo.png" alt="JOYORA Logo">
+  <h1>JOYORA'26</h1>
+  <p>Powered by Business Department<br>Joy University</p>
+</header>
 
-<h1>Corporate Walk</h1>
+<div id="timer"></div>
 
-<h3>Objective</h3>
-<p>
-To evaluate professionalism, confidence, grooming, and corporate etiquette.
-</p>
+<section class="events">
+  <div class="event-card" onclick="openEvent('corporate')">
+    <h2>Corporate Walk</h2>
+    <p>Professionalism • Confidence • Style</p>
+  </div>
 
-<h3>Rules & Regulations</h3>
-<ul>
-  <li>Participation can be individual or team (Maximum 8 members).</li>
-  <li>Participants must wear formal corporate attire.</li>
-  <li>Each participant/team will get 5 to 7 minutes on stage.</li>
-  <li>Audio must be submitted at least two days in advance.</li>
-  <li>Judges may ask corporate or situational questions.</li>
-  <li>Inappropriate attire or behavior will lead to disqualification.</li>
-  <li>Judges' decision will be final.</li>
-</ul>
+  <div class="event-card" onclick="openEvent('adzap')">
+    <h2>Adzap</h2>
+    <p>Creativity • Marketing • Presentation</p>
+  </div>
 
-<a class="register-btn" 
-   href="https://forms.gle/tas6TkfkNvCrJo6v8" 
-   target="_blank">
-   Register Now
-</a>
+  <div class="event-card" onclick="openEvent('bestmanager')">
+    <h2>Best Manager</h2>
+    <p>Leadership • Decision Making</p>
+  </div>
 
+  <div class="event-card" onclick="openEvent('termco')">
+    <h2>Term Co</h2>
+    <p>Business Ethics • Analytical Thinking</p>
+  </div>
+</section>
+
+<section id="details"></section>
+
+<footer>
+  © JOYORA'26 | Joy University •  
+  <a href="#">Instagram</a>
+</footer>
+
+<script>
+// COUNTDOWN
+const endDate = new Date("2026-02-25T23:59:59").getTime();
+setInterval(()=>{
+  const now = new Date().getTime();
+  const d = endDate - now;
+  if(d<=0){
+    document.getElementById("timer").innerHTML="Registration Closed";
+    return;
+  }
+  const days=Math.floor(d/(1000*60*60*24));
+  const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  const min=Math.floor((d%(1000*60*60))/(1000*60));
+  const sec=Math.floor((d%(1000*60))/1000);
+  document.getElementById("timer").innerHTML=
+  `Registration Ends In<br><b>${days}d ${hrs}h ${min}m ${sec}s</b>`;
+},1000);
+
+// EVENT DATA
+const events={
+corporate:{
+title:"Corporate Walk",
+objective:"To evaluate professionalism, confidence, grooming, and corporate etiquette.",
+rules:[
+"Individual or team participation (Max 8 members).",
+"Formal corporate attire is mandatory.",
+"5–10 minutes stage time.",
+"Audio submission minimum 2 days prior.",
+"Judges may ask situational questions.",
+"Inappropriate behavior leads to disqualification.",
+"Judges decision is final."
+],
+coordinators:[
+"Jenish – 9876543210",
+"Arun – 9123456789"
+],
+form:"https://forms.gle/tas6TkfkNvCrJo6v8"
+},
+
+adzap:{
+title:"Adzap",
+objective:"To assess creativity, marketing strategy, and communication skills.",
+rules:[
+"Maximum 5 members per team.",
+"Product will be given on the spot.",
+"Time limit: 6 minutes.",
+"No offensive or vulgar content.",
+"Judges decision is final."
+],
+coordinators:[
+"Priya – 9000000000"
+],
+form:"https://forms.gle/tas6TkfkNvCrJo6v8"
+},
+
+bestmanager:{
+title:"Best Manager",
+objective:"To evaluate leadership, decision making, and managerial efficiency.",
+rules:[
+"Individual or team (Max 2 members).",
+"Multiple rounds may be conducted.",
+"Problem solving and management skills tested.",
+"Professional conduct is mandatory.",
+"Judges decision is final."
+],
+coordinators:[
+"Name 1 – 9000000001",
+"Name 2 – 9000000002"
+],
+form:"https://forms.gle/tas6TkfkNvCrJo6v8"
+},
+
+termco:{
+title:"Term Co",
+objective:"To test business ethics, analytical thinking, and decision making skills.",
+rules:[
+"Individual or team (Max 3 members).",
+"Case scenario will be provided.",
+"Logical and ethical arguments required.",
+"Any malpractice leads to disqualification.",
+"Judges decision is final."
+],
+coordinators:[
+"Name 1 – 9000000003",
+"Name 2 – 9000000004"
+],
+form:"https://forms.gle/tas6TkfkNvCrJo6v8"
+}
+};
+
+function openEvent(key){
+const ev=events[key];
+let ruleHTML="";
+ev.rules.forEach(r=>ruleHTML+=`<li>${r}</li>`);
+
+document.getElementById("details").innerHTML=`
+<div class="section">
+<h2>${ev.title}</h2>
+<p>${ev.objective}</p>
 </div>
-</body>
-</html>
 
-      <div class="card">
-        <h3>Best Manager</h3>
-        <p>Test your management & decision skills</p>
-            <a href="https://forms.gle/tas6TkfkNvCrJo6v8" target="_blank">
-  <section>
-        <div class="price">₹150</div>
-      </div>
+<div class="section">
+<h3>Rules & Regulations</h3>
+<ul>${ruleHTML}</ul>
+</div>
 
-      <div class="card">
-        <h3>Ad-zap</h3>
-        <p>Creative advertising competition</p>
-            <a href="https://forms.gle/tas6TkfkNvCrJo6v8" target="_blank">
-  <section>
-        <div class="price">₹150</div>
-      </div>
+<div class="section">
+<h3>Event Coordinators</h3>
+<p>${ev.coordinators.join("<br>")}</p>
+</div>
 
-      <div class="card">
-        <h3>Term Court</h3>
-        <p>Business law & debate event</p>
-            <a href="https://forms.gle/tas6TkfkNvCrJo6v8" target="_blank">
-  <section>
-        <div class="price">₹150</div>
-      </div>
-    </div>
-  </section>
+<div class="section">
+<h3>Location</h3>
+<p>Joy University</p>
+</div>
 
-  <footer>
-    © 2026 Joyora | Joy University
-  </footer>
+<div class="section" style="text-align:center">
+<button onclick="window.open('${ev.form}','_blank')">Register Now</button>
+</div>
+`;
+document.getElementById("details").style.display="block";
+window.scrollTo({top:document.getElementById("details").offsetTop-20,behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
