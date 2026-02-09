@@ -6,355 +6,285 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --main:#7b2cff;
-  --dark:#0b061a;
-  --card:#16002f;
-  --text:#ffffff;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Segoe UI,sans-serif;}
 body{
-  background:radial-gradient(circle at top,#1a0038,#050010);
-  color:var(--text);
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:#f4f6f9;
+  color:#222;
 }
 
-/* HEADER */
 header{
   text-align:center;
-  padding:70px 20px;
+  padding:50px 20px;
+  background:linear-gradient(135deg,#000,#222);
+  color:#fff;
 }
+
 header img{
-  width:120px;
+  max-width:260px;
+  width:90%;
   margin-bottom:20px;
 }
+
 header h1{
-  font-size:3.2rem;
-  color:#d6b8ff;
+  margin:10px 0 5px;
+  letter-spacing:2px;
 }
+
 header p{
+  margin:0;
   opacity:.85;
-  margin-top:8px;
 }
 
-/* TIMER */
-#timer{
-  margin:30px auto;
-  width:90%;
-  max-width:520px;
-  background:linear-gradient(45deg,#2b0060,#3d0099);
-  padding:22px;
-  border-radius:16px;
-  text-align:center;
-  font-size:1.2rem;
-  box-shadow:0 0 25px #7b2cff55;
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:25px;
+  flex-wrap:wrap;
 }
 
-/* EVENTS */
-.events{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  padding:40px;
+.countdown div{
+  background:#fff;
+  color:#000;
+  padding:14px 18px;
+  border-radius:14px;
+  min-width:90px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
-.event-card{
-  background:var(--card);
-  padding:30px;
-  border-radius:18px;
-  cursor:pointer;
-  transition:.4s;
-  border:1px solid #7b2cff44;
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
 }
-.event-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px #7b2cffaa;
+
+h2{
+  margin-top:0;
+  margin-bottom:20px;
 }
-.event-card h2{
-  color:#d6b8ff;
+
+.event{
+  background:#fff;
+  padding:28px;
+  margin-bottom:30px;
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.event h3{
+  margin-top:0;
+  color:#000;
+}
+
+.event h4{
   margin-bottom:10px;
 }
 
-/* DETAILS */
-#details{
-  display:none;
-  padding:40px;
-  animation:fade .6s ease;
+.event ul{
+  padding-left:20px;
+  line-height:1.6;
 }
-@keyframes fade{from{opacity:0}to{opacity:1}}
 
-.section{
-  background:var(--card);
-  margin-bottom:30px;
-  padding:28px;
-  border-radius:18px;
-  border:1px solid #7b2cff33;
+.register{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 30px;
+  background:#000;
+  color:#fff;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:600;
+  transition:.3s;
 }
-.section h3{
-  color:#d6b8ff;
-  margin-bottom:12px;
-}
-.section ul{padding-left:20px}
-.section li{margin-bottom:8px}
 
-button{
-  background:linear-gradient(45deg,#7b2cff,#b084ff);
-  border:none;
-  padding:15px 40px;
-  border-radius:40px;
-  font-size:1.05rem;
-  color:white;
-  cursor:pointer;
+.register:hover{
+  background:#333;
 }
-button:hover{opacity:.9}
 
-/* FOOTER */
 footer{
+  background:#111;
+  color:#fff;
   text-align:center;
-  padding:30px;
-  opacity:.75;
+  padding:35px 20px;
 }
-a{color:#d6b8ff;text-decoration:none}
+
+footer a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
 </style>
 </head>
 
 <body>
 
-<header style="text-align:center;padding:40px 20px;">
+<!-- HEADER -->
+<header>
+  <img src="joyora26-logo.png" alt="Joyora 26 Logo">
 
-  <img src="joyora26-logo.png"
-       alt="Joyora 26 Logo"
-       style="max-width:260px;width:90%;margin-bottom:20px;">
+  <h1>JOYORA'26</h1>
+  <p>Powered by Business Department<br>Joy University</p>
 
-  <h2 style="font-size:1.4rem;letter-spacing:1px;">
-    MANAGEMENT DEPARTMENT FEST
-  </h2>
-
-  <p style="margin-top:10px;opacity:.85;">
-    Powered by SOEM Department <br>
-    Joy University
-  </p>
-
+  <div class="countdown">
+    <div><span id="days">0</span><br>Days</div>
+    <div><span id="hours">0</span><br>Hours</div>
+    <div><span id="minutes">0</span><br>Minutes</div>
+    <div><span id="seconds">0</span><br>Seconds</div>
+  </div>
 </header>
 
-<div id="timer"></div>
+<!-- GENERAL RULES -->
+<section>
+  <h2>General Rules</h2>
+  <ul>
+    <li>Online registration is mandatory.</li>
+    <li>Participants must carry a valid college ID.</li>
+    <li>Reporting time must be strictly followed.</li>
+    <li>No misbehavior or misconduct will be tolerated.</li>
+    <li>Organizers reserve the right to modify rules if required.</li>
+    <li>Judges’ and organizers’ decisions are final.</li>
+    <li>Participation of an individual is restricted to only one event.</li>
+  </ul>
+</section>
 
-  <!-- GENERAL INFORMATION -->
-<section style="padding:50px 40px;">
+<!-- EVENTS -->
+<section>
+  <h2>Events</h2>
 
-  <div class="section">
-    <h3 style="color:#d6b8ff;margin-bottom:12px;">
-      General Information
-    </h3>
-    <p style="font-size:1rem;line-height:1.8;opacity:.9;">
-      JOYORA’26 is an inter-college symposium organized by the Business Department
-      of Joy University. The event provides a professional platform for students
-      to showcase creativity, leadership, communication, and managerial skills.
+  <!-- CORPORATE WALK -->
+  <div class="event">
+    <h3>Corporate Walk</h3>
+    <p><b>Objective:</b><br>
+    To evaluate professionalism, confidence, grooming, and corporate etiquette.
     </p>
-  </div>
 
-  <div class="section">
-    <h3 style="color:#ffb703;margin-bottom:12px;">
-      Rules & Regulations (Applicable to All Events)
-    </h3>
-
-    <ul style="font-size:1rem;line-height:1.9;padding-left:20px;">
-      <li>Online registration is mandatory for all participants.</li>
-      <li>Participants must carry a valid college ID card.</li>
-      <li>Reporting time must be strictly followed.</li>
-      <li>No misbehavior or misconduct will be tolerated.</li>
-      <li>Organizers reserve the right to modify rules if required.</li>
-      <li>Judges’ and organizers’ decisions will be final and binding.</li>
-      <li>Participation of an individual is restricted to only one event.</li>
+    <h4>Rules & Regulations</h4>
+    <ul>
+      <li>Participation can be individual or team (maximum 8 members).</li>
+      <li>Formal corporate attire is mandatory.</li>
+      <li>Each participant/team will get 5–7 minutes on stage.</li>
+      <li>Audio must be submitted at least two days in advance.</li>
+      <li>Judges may ask corporate or situational questions.</li>
+      <li>Inappropriate attire or behavior will lead to disqualification.</li>
+      <li>Judges’ decision will be final.</li>
     </ul>
+
+    <a class="register" target="_blank"
+       href="https://forms.gle/tas6TkfkNvCrJo6v8">
+       Register
+    </a>
   </div>
 
-  <div style="text-align:center;margin-top:50px;">
-    <h2 style="font-size:2.8rem;color:#d6b8ff;">
-      Events
-    </h2>
+  <!-- AD ZAP -->
+  <div class="event">
+    <h3>Ad-Zap</h3>
+    <p><b>Objective:</b><br>
+    To test participants’ creativity, marketing skills, spontaneity, and presentation ability.
+    </p>
+
+    <h4>Rules & Regulations</h4>
+    <ul>
+      <li>Each team can have 5–6 participants.</li>
+      <li>Performance time: 5–8 minutes strictly.</li>
+      <li>Only original advertisements are allowed.</li>
+      <li>English audio only; must be submitted two days prior.</li>
+      <li>Participants must bring their own props.</li>
+      <li>No offensive, political, religious content or plagiarism.</li>
+      <li>Judges’ decision is final and binding.</li>
+    </ul>
+
+    <a class="register" target="_blank"
+       href="https://forms.gle/tas6TkfkNvCrJo6v8">
+       Register
+    </a>
+  </div>
+
+  <!-- BEST MANAGER -->
+  <div class="event">
+    <h3>Best Manager</h3>
+
+    <h4>Rules & Regulations</h4>
+    <ul>
+      <li>Individual competition only.</li>
+      <li>All rounds must be completed.</li>
+      <li>Elimination after every round.</li>
+      <li>Round format will be announced on the spot.</li>
+      <li>Use of mobile phones or smart devices is prohibited.</li>
+      <li>Any misconduct leads to immediate disqualification.</li>
+      <li>Strict adherence to time limits.</li>
+      <li>Language of communication: English.</li>
+      <li>Judges’ instructions are final.</li>
+    </ul>
+
+    <a class="register" target="_blank"
+       href="https://forms.gle/tas6TkfkNvCrJo6v8">
+       Register
+    </a>
+  </div>
+
+  <!-- TERM CO -->
+  <div class="event">
+    <h3>Term Co</h3>
+
+    <p><b>Objective:</b><br>
+    To assess speaking ability, analytical thinking, and balanced argument skills.
+    </p>
+
+    <h4>Rules & Regulations</h4>
+    <ul>
+      <li>Individual speaking competition.</li>
+      <li>Random topic will be given on the spot.</li>
+      <li>Participants must speak both FOR and AGAINST the topic.</li>
+      <li>Order decided by event coordinators.</li>
+      <li>Preparation time announced on the spot.</li>
+      <li>Strict time limit.</li>
+      <li>No topic change once allotted.</li>
+      <li>No mobile phones, notes, or external help allowed.</li>
+      <li>English language only.</li>
+      <li>Offensive content leads to disqualification.</li>
+      <li>Shortlisting after each round.</li>
+      <li>Tie-breaker round if required.</li>
+    </ul>
+
+    <a class="register" target="_blank"
+       href="https://forms.gle/tas6TkfkNvCrJo6v8">
+       Register
+    </a>
   </div>
 
 </section>
-  
-<section class="events">
-  <div class="event-card" onclick="openEvent('corporate')">
-    <h2>Corporate Walk</h2>
-    <p>Professionalism • Confidence • Style</p>
-  </div>
 
-  <div class="event-card" onclick="openEvent('adzap')">
-    <h2>Adzap</h2>
-    <p>Creativity • Marketing • Presentation</p>
-  </div>
-
-  <div class="event-card" onclick="openEvent('bestmanager')">
-    <h2>Best Manager</h2>
-    <p>Leadership • Decision Making</p>
-  </div>
-
-  <div class="event-card" onclick="openEvent('termco')">
-    <h2>Tern Co</h2>
-    <p>Business Ethics • Analytical Thinking</p>
-  </div>
-</section>
-
-<section id="details"></section>
-
+<!-- FOOTER -->
 <footer>
-  © JOYORA'26 | Joy University •  
-  <a href="https://www.instagram.com/soem_ju?igsh=MXNubzB5cHU5anZxNw==" target="_blank">
-    Instagram @soem_ju
-  </a>
+  <p>📍 Joy University</p>
+  <p>
+    <a target="_blank"
+       href="https://www.instagram.com/soem_ju?igsh=MXNubzB5cHU5anZxNw==">
+       Instagram: @soem_ju
+    </a>
+  </p>
 </footer>
 
+<!-- COUNTDOWN SCRIPT -->
 <script>
-// COUNTDOWN
-const endDate = new Date("2026-02-25T23:59:59").getTime();
+const targetDate = new Date("2026-02-26T17:00:00+05:30").getTime();
+
 setInterval(()=>{
   const now = new Date().getTime();
-  const d = endDate - now;
-  if(d<=0){
-    document.getElementById("timer").innerHTML="Registration Closed";
-    return;
-  }
-  const days=Math.floor(d/(1000*60*60*24));
-  const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-  const min=Math.floor((d%(1000*60*60))/(1000*60));
-  const sec=Math.floor((d%(1000*60))/1000);
-  document.getElementById("timer").innerHTML=
-  `Registration Ends In<br><b>${days}d ${hrs}h ${min}m ${sec}s</b>`;
+  const diff = targetDate - now;
+
+  if(diff <= 0) return;
+
+  document.getElementById("days").innerText =
+    Math.floor(diff / (1000*60*60*24));
+  document.getElementById("hours").innerText =
+    Math.floor((diff / (1000*60*60)) % 24);
+  document.getElementById("minutes").innerText =
+    Math.floor((diff / (1000*60)) % 60);
+  document.getElementById("seconds").innerText =
+    Math.floor((diff / 1000) % 60);
 },1000);
-
-// EVENT DATA
-const events={
-corporate:{
-title:"Corporate Walk",
-objective:"To evaluate professionalism, confidence, grooming, and corporate etiquette.",
-rules:[
-"Individual or team participation (Max 8 members).",
-"Formal corporate attire is mandatory.",
-"5–10 minutes stage time.",
-"Audio submission minimum 2 days prior.",
-"Judges may ask situational questions.",
-"Inappropriate behavior leads to disqualification.",
-"Judges decision is final."
-],
-coordinators:[
-"Jenish – 9876543210",
-"Arun – 9123456789"
-],
-form:"https://forms.gle/tas6TkfkNvCrJo6v8"
-},
-
-adzap:{
-title:"Ad-zap",
-objective:"To test participants’ creativity, marketing skills, spontaneity, and presentation ability.",
-rules:[
-"Each team can have 5–6 participants.",
-"Performance time: 5–8 minutes strictly.",
-"Participants must create an original advertisement (no existing ads or jingles).",
-"Only English audio is permitted and must be submitted at least two days prior to the event.",
-"Use of props is allowed, but participants must bring their own.",
-"Offensive language, political/religious content, or plagiarism will lead to disqualification.",
-"Judges’ decision will be final and binding."
-],
-coordinators:[
-"Name – Phone Number"
-],
-form:"https://forms.gle/tas6TkfkNvCrJo6v8"
-},
-
-bestmanager:{
-title:"Best Manager",
-objective:"To evaluate leadership, managerial skills, decision making, and professional competence.",
-rules:[
-"The event is an individual competition; no team participation is allowed.",
-"Each participant must complete all rounds to be eligible for the title Best Manager.",
-"Elimination applies after every round based on judges’ evaluation.",
-"The sequence and format of rounds will be announced on the spot and are subject to change.",
-"Use of mobile phones, smart devices, or external assistance is strictly prohibited.",
-"Any form of misconduct, impersonation, or malpractice will result in immediate disqualification.",
-"Participants must strictly adhere to the time limits for each round.",
-"The language of communication shall be English unless specified otherwise.",
-"Judges’ hints, prompts, or clarifications are final and binding."
-],
-coordinators:[
-"Name – Phone Number"
-],
-form:"https://forms.gle/tas6TkfkNvCrJo6v8"
-},
-
-<section class="event-details">
-
-  termco:{
-title:"Term Co",
-objective:"To assess speaking ability, analytical thinking, and balanced argument skills.",
-rules:[
-"The event is an individual speaking competition.",
-"Each participant will be given a random topic/word/situation on the spot.",
-"Participants must speak both FOR and AGAINST the given topic.",
-"The order of speaking will be decided by the event coordinators.",
-"Preparation time, if any, will be announced on the spot.",
-"Total speaking time is strictly limited; exceeding it may lead to penalties or disqualification.",
-"Participants are not allowed to change the topic once allotted.",
-"Use of mobile phones, notes, or any external help is strictly prohibited.",
-"Repetition, deviation from topic, or long pauses may lead to deduction of marks.",
-"The language of communication shall be English only.",
-"Any offensive or inappropriate content will result in immediate disqualification.",
-"Shortlisting and elimination will be done after each round.",
-"In case of a tie, judges may assign an additional topic."
-],
-coordinators:[
-"Name – Phone Number"
-],
-form:"https://forms.gle/tas6TkfkNvCrJo6v8"
-  }
-
-</section>
-};
-
-function openEvent(key){
-const ev=events[key];
-let ruleHTML="";
-ev.rules.forEach(r=>ruleHTML+=`<li>${r}</li>`);
-
-document.getElementById("details").innerHTML=`
-<div class="section">
-<h2>${ev.title}</h2>
-<p>${ev.objective}</p>
-</div>
-
-<div class="section">
-<h3>Rules & Regulations</h3>
-<ul>${ruleHTML}</ul>
-</div>
-
-<div class="section">
-<h3>Event Coordinators</h3>
-<p>${ev.coordinators.join("<br>")}</p>
-</div>
-
-<div class="section">
-<h3>Location</h3>
-<p>Joy University</p>
-
-<iframe 
-  src="https://www.google.com/maps?q=Joy%20University&output=embed"
-  width="100%" 
-  height="300" 
-  style="border:0;border-radius:14px;margin-top:15px;"
-  allowfullscreen="" 
-  loading="lazy">
-</iframe>
-
-</div>
-
-<div class="section" style="text-align:center">
-<button onclick="window.open('${ev.form}','_blank')">Register Now</button>
-</div>
-`;
-document.getElementById("details").style.display="block";
-window.scrollTo({top:document.getElementById("details").offsetTop-20,behavior:"smooth"});
-}
 </script>
 
 </body>
